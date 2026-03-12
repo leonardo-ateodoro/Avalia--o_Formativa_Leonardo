@@ -11,7 +11,7 @@ def recuperar_requisitos():
 def excluir_requisitos(codigo):
     conexao, cursor = conectar()
     cursor.execute("""
-                    DELETE FROM tb_requisitos WHERE cod_requisitos = %s;
+                    DELETE FROM tb_requisitos WHERE cod_requisito = %s;
                     """, [codigo])
     conexao.commit()
     conexao.close()

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-from models.requisito import recuperar_requisitos
+from models.requisito import recuperar_requisitos, excluir_requisitos
 
 
 app = Flask (__name__)
@@ -13,5 +13,12 @@ def pagina_principal():
 def pagina_requisitos():
     requisitos = recuperar_requisitos()
     return render_template('requisitos.html', requisitos = requisitos)
+
+@app.route("/delete/<codigo>")
+def deletar_requisitos(codigo):
+    excluir_requisitos(codigo)
+    return redirect ('/requisitos')
+    
+
 
 app.run (debug=True)
