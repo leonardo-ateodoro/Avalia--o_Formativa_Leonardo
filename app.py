@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-from models.requisito import recuperar_requisitos, excluir_requisitos, alterar_requisitos
+from models.requisito import inserir_requisitos, recuperar_requisitos, excluir_requisitos, alterar_requisitos
 
 
 app = Flask (__name__)
@@ -25,6 +25,8 @@ def cadastrar_requisitos():
    descricao = request.form.get("descricao")
    nivel= request.form.get("nivel")
    valor = request.form.get ("valor") 
+   inserir_requisitos(descricao, nivel, valor)
+   return redirect('/requisitos')
 
 @app.route("/alterar/<codigo>/<situacao>")
 def pagina_alterar(codigo, situacao):
