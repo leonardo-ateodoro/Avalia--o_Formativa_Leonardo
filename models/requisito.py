@@ -25,3 +25,12 @@ def inserir_requisitos(descricao, nivel, valor, situacao= "Pendente"):
                 [descricao, nivel, valor, situacao])
     conexao.commit()
     conexao.close()
+
+def alterar_requisitos(codigo, situacao):
+    conexao, cursor = conectar()
+    cursor.execute("""
+                    UPDATE tb_requisitos SET situacao = %s WHERE cod_requisito = %s;                        
+                    """,
+                    [situacao, codigo])
+    conexao.commit()
+    conexao.close()

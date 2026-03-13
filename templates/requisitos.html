@@ -151,9 +151,13 @@
                     <td>{{ requisito.valor }}</td>
                     <td>{{ requisito.situacao }} </td>
                     <td class="acao-buttons">
-                        <a href="/delete/{{requisito.cod_requisito}}"><button style="background-color: rgba(180, 50, 50, 0.868);">Deletar</button></a>
-                        <button style="background-color: rgb(2, 109, 66);">Marcar como Resolvido</button>
-                        <button style="background-color: rgb(45, 2, 109);">Marcar como Pendente</button>
+                        <button style="background-color: rgba(180, 50, 50, 0.868);">Deletar</button>
+                        <a href="/alterar/{{requisito.cod_requisito}}/Resolvido">
+                            <button style="background-color: rgb(2, 109, 66);">Marcar como Resolvido</button>
+                        </a>
+                        <a href="/alterar/{{requisito.cod_requisito}}/Pendente">
+                            <button style="background-color: rgb(45, 2, 109);">Marcar como Pendente</button>
+                        </a>
                     </td>
                 </tr>
                 {% endfor %}
