@@ -18,7 +18,13 @@ def pagina_requisitos():
 def deletar_requisitos(codigo):
     excluir_requisitos(codigo)
     return redirect ('/requisitos')
-    
+
+
+@app.route("/inserir", methods = ["POST"])
+def cadastrar_requisitos():
+   descricao = request.form.get("descricao")
+   nivel= request.form.get("nivel")
+   valor = request.form.get ("valor") 
 
 
 app.run (debug=True)

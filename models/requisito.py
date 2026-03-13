@@ -15,3 +15,13 @@ def excluir_requisitos(codigo):
                     """, [codigo])
     conexao.commit()
     conexao.close()
+
+def inserir_requisitos(descricao, nivel, valor, situacao= "Pendente"):
+    conexao, cursor = conectar()
+    cursor.execute("""
+                   INSERT INTO tb_requisitos (descricao, nivel, valor, situacao)
+                   VALUES (%s, %s, %s, %s);
+                   """,
+                [descricao, nivel, valor, situacao])
+    conexao.commit()
+    conexao.close()
